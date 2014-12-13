@@ -19,12 +19,8 @@ so~如果您对我的研究方向(NLP | CV)感兴趣，对我的刷题代码或�
 
 Email : jin.hu2013@gmail.com
 
-LinkedIn : cn.linkedin.com/in/hujin2013/
-
-Facebook : facebook.com/huj690
-
-Github : github.com/huj690
-
-Weibo :  weibo.com/huj690
-
-Renren : renren.com/huj690
+<a href = "cn.linkedin.com/in/hujin2013/">LinkedIn</a><br>
+<a href = "facebook.com/huj690">Facebook</a><br>
+<a href = "github.com/huj690">Github</a><br>
+<a href = "weibo.com/huj690">Weibo</a><br>
+<a href = "renren.com/huj690">Renren</a>
