@@ -1,7 +1,7 @@
 leetcode_huj690
 ===============
 
-欢迎！
+<strong>欢迎！</strong>
 
 我是胡小慢，程序媛妹子一枚。爱生活，爱代码，eager to grow up!
 
@@ -15,7 +15,7 @@ so~如果您对我的研究方向(NLP | CV)感兴趣，对我的刷题代码或�
 
  
 
-联系我
+<strong>联系我</strong>
 
 Email : jin.hu2013@gmail.com<br>
 <a href = "cn.linkedin.com/in/hujin2013/">LinkedIn</a><br>
