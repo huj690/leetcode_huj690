@@ -17,8 +17,7 @@ so~如果您对我的研究方向(NLP | CV)感兴趣，对我的刷题代码或�
 
 联系我
 
-Email : jin.hu2013@gmail.com
-
+Email : jin.hu2013@gmail.com<br>
 <a href = "cn.linkedin.com/in/hujin2013/">LinkedIn</a><br>
 <a href = "facebook.com/huj690">Facebook</a><br>
 <a href = "github.com/huj690">Github</a><br>
