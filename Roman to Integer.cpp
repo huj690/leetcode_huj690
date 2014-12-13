@@ -17,7 +17,7 @@ I	 V	X	  L	  C	  D	  M
 trick：
 从前向后遍历罗马数字，如果某个数比前一个数小(dic[s[i]] <= dic[s[i - 1]])，则加上该数。反之，减去前一个数的两倍然后加上该数
 */
-
+ 
 class Solution {
 public:
   int romanToInt(string s) {
