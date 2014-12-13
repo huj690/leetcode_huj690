@@ -21,7 +21,7 @@ trick：
 class Solution {
 public:
   int romanToInt(string s) {
-	  if (s.empty()) {
+  	if (s.empty()) {
 	    return 0;
 	  }
 		InitDic();
