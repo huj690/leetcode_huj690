@@ -9,7 +9,7 @@ Here are some examples. Inputs are in the left-hand column and its corresponding
 */
 
 /*
-中心思想：逆序是没有next permutation的！
+中心思想：逆序是没有next permutation的！(或者说，逆序的next permutation就是全正序)
 思路：排列数字末尾出现的末尾数字即使需要改变的部分
 step1: 从右向左，依次判断逆序出现的位置（num[i] <= num[i - 1]），用upPost定位逆序出现之前的位置
       *若整个数组均为逆序，（upPost < 0）则反转成为正序
