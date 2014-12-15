@@ -3,3 +3,11 @@
   reverse(list.begin(), list.begin() + 9); [0, 8)
 2. 利用delta值做递增，不要复制四遍代码
 3. 先标记visit，再que.push，注意逻辑TOT
+4. 广搜时，当前que的size大小就是该层节点个数：
+  while (!q.empty()){
+    int n = q.size();
+    while (n--){
+      ......
+    }
+  }
+
