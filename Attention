@@ -1,3 +1,5 @@
 1. 注意reverse的用法，[left, right) !!!
   reverse(list.begin(), list.end()); [0, list.size()- 1)
   reverse(list.begin(), list.begin() + 9); [0, 8)
+2. 利用delta值做递增，不要复制四遍代码
+3. 先标记visit，再que.push，注意逻辑TOT
