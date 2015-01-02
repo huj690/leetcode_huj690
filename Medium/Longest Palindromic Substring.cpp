@@ -9,6 +9,8 @@ if the palidrome's length is odd : aba : left = i - 1; right = i + 1; cnt = 1;
 if is even: abba : left = i; right = i + 1; cnt = 0;
 */
 
+/*暴力O(n^3), O(1) -> 动规O(n^2), O(n^2) -> 中心扩展O(n^2), O(1) -> Manacher O(n), O(n)*/
+
 class Solution {
 public:
     string longestPalindrome(string s) {
