@@ -14,6 +14,7 @@ private:
     vector<vector<int> > res;
     void enumSubSets(vector<int> sub, int level) {
         if (level == S.size()) {
+            sort(sub.begin(), sub.end());
             res.push_back(sub);
             return;
         }
