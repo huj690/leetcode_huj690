@@ -14,6 +14,9 @@ When s3 = "aadbbbaccc", return false.
 滚动数组：
 dp[i - 1][j] 可以表示为 dp[j]
 dp[i][j - 1] 可以表示为 dp[j - 1]
+因为它们都算过了
+
+初始化很神奇，要记住这种写法
 */
 
 
