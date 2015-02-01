@@ -28,7 +28,7 @@ public:
         }
         
         if (s1.length() > s2.length()) {
-            isInterleave(s2, s1, s3);
+            return isInterleave(s2, s1, s3);
         }
         
         vector<bool> dp(s2.length() + 1, false);
