@@ -47,7 +47,7 @@ public:
             return minDistance(word2, word1);
         }
         vector<int> dp(word1.length() + 1, 0);
-        int upper_left = 0; // dp[i - 1][j - 1]
+        int upper_left = 0;  // dp[i - 1][j - 1]
         
         // init
         for (int j = 0; j <= word1.length(); j++) {
@@ -61,7 +61,8 @@ public:
             
             for (int j = 1; j <= word1.length(); j++) {
                 int upper = dp[j];
-                dp[j] = min (dp[j], min(dp[j - 1], word2[i - 1] == word1[j - 1] ? upper_left - 1 : upper_left)) + 1;
+                dp[j] = min(dp[j], min(dp[j - 1], 
+                    word2[i - 1] == word1[j - 1] ? upper_left - 1 : upper_left)) + 1;
                 upper_left = upper;
             }
         }
