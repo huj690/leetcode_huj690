@@ -11,39 +11,25 @@ public:
         if (n == 0) {
             return 0;
         }
+        
         int low = 0, high = n - 1;
         while (low <= high) {
             int mid = low + (high - low) / 2;
-            if (target == A[mid]) {
+            if (A[mid] == target) {
                 return mid;
             }
             if (A[low] < A[mid]) { // low part is sorted
-                if (A[low] <= target && target <= A[mid - 1]) { // in this part
-                     return bsearch(A, low, mid - 1, target);
+                if (A[low] <= target && target <= A[mid - 1]) {
+                    high = mid - 1;
                 } else {
                     low = mid + 1;
                 }
             } else { // high part is sorted
                 if (A[mid + 1] <= target && target <= A[high]) {
-                    return bsearch(A, mid + 1, high, target);
+                    low = mid + 1;
                 } else {
                     high = mid - 1;
                 }
-            }
-        }
-        return -1;
-    }
-private:
-    int bsearch(int *A, int low, int high, int target) {
-        while (low <= high) {
-            int mid = low + (high - low) / 2;
-            if (A[mid] == target) {
-                return mid;
-            } 
-            if (A[mid] < target) {
-                low = mid + 1;
-            } else {
-                high = mid - 1;
             }
         }
         return -1;
