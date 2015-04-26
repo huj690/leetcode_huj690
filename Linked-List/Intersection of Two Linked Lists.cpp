@@ -19,6 +19,48 @@ The linked lists must retain their original structure after the function returns
 You may assume there are no cycles anywhere in the entire linked structure.
 Your code should preferably run in O(n) time and use only O(1) memory.
 */
+
+
+/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     ListNode *next;
+ *     ListNode(int x) : val(x), next(NULL) {}
+ * };
+ */
+class Solution {
+public:
+    ListNode *getIntersectionNode(ListNode *headA, ListNode *headB) {
+        if (headA == NULL || headB == NULL) {
+            return NULL;
+        }
+        ListNode* pa = headA, *pb = headB;
+        while (pa && pb) {
+            pa = pa->next;
+            pb = pb->next;
+        }
+        
+        ListNode *fast = pa ? headA : headB;
+        ListNode * slow = pa ? headB : headA;
+        while (pa || pb) {
+            pa = pa ? pa->next : NULL;
+            pb = pb ? pb->next : NULL;
+            fast = fast->next;
+        }
+        
+        while (fast && slow) {
+            if (fast == slow) {
+                return fast;
+            }
+            fast = fast->next;
+            slow = slow->next;
+        }
+        return NULL;
+    }
+};
+
+
 class Solution {
 public:
     ListNode *getIntersectionNode(ListNode *headA, ListNode *headB) {
