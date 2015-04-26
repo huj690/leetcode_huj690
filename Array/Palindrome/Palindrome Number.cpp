@@ -30,21 +30,12 @@ public:
 class Solution {
 public:
     bool isPalindrome(int x) {
-        if (x < 0) {
-            return false;
-        }
-		int cnt = 0, copy_x = x;
-		while (copy_x != 0) {
-			cnt++;
-			copy_x /= 10;
-		}
-
+        if (x < 0 || (x != 0 && x % 10 == 0 )) return false;
         int y = 0;
-		int mid = cnt / 2;
-        while (mid--) {
+        while ( x > y) {
             y = y * 10 + x % 10;
             x /= 10;
         }
-        return cnt % 2 == 0 ? x == y : x / 10 == y;
+        return x == y || x == y / 10;
     }
 };
