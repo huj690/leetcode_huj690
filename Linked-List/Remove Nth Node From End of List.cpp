@@ -35,8 +35,8 @@ public:
             slow = slow->next;
         }
         
-        ListNode *tmp = slow->next; //这样才能delete
-        slow->next = slow->next->next;
+        ListNode *tmp = slow->next;
+        slow->next = tmp->next;
         delete tmp;
         
         return dummy->next;
