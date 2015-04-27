@@ -8,7 +8,6 @@ Your algorithm should use only constant space. You may not modify the values in 
 
 */
 
-
 class Solution {
 public:
     ListNode* swapPairs(ListNode* head) {
@@ -26,7 +25,7 @@ public:
             
             prev = cur;
             cur = prev->next;
-            next = cur ? cur->next : NULL;
+            next = cur ? cur->next : NULL; // 这句写法很棒~~可以节省特判用的代码！~
         }
         
         return dummy->next;
