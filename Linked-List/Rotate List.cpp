@@ -8,30 +8,26 @@ return 4->5->1->2->3->NULL.
 */
 class Solution {
 public:
-    ListNode *rotateRight(ListNode *head, int k) {
-        if (head == nullptr) {
+    ListNode* rotateRight(ListNode* head, int k) {
+        if (head == NULL || k == 0) {
             return head;
         }
-        ListNode *dummy = new ListNode(-1);
-        dummy->next = head;
         
-        ListNode* p = dummy; //这样停下来的时候就是最后一个节点而不是空
-        int length = 0;
-        while (p->next != nullptr) {
-            length++;
+        int len = 1;
+        ListNode *p = head;
+        while (p->next) { // 求长度
+            len++;
+            p = p->next;
+        }
+        p->next = head; // 首尾相连
+        
+        k = len - k % len;
+        while (k--) { // 接着往后跑
             p = p->next;
         }
         
-        k %= length; //可能k > n
-        p->next = head; //连成一个环，再跑剩下的路程
-        for (int i = 0; i < length - k; i++) {
-            p = p->next;
-        }
-        
-        dummy->next = p->next; //截断
-        p->next = nullptr;
-        
-        return dummy->next;
-        
+        head = p->next;
+        p->next = NULL; // 截断
+        return head;
     }
 };
