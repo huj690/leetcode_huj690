@@ -15,7 +15,7 @@ Try to do this in one pass.
 class Solution {
 public:
     ListNode *removeNthFromEnd(ListNode *head, int n) {
-        if (head == nullptr) {
+        if (head == NULL) {
             return head;
         }
         
@@ -24,13 +24,13 @@ public:
         
         ListNode *fast = dummy, *slow = dummy;
         for (int i = 0; i < n; i++) {
-            if (fast == nullptr) { //判断合法
+            if (fast == NULL) { //判断合法
                 return head;
             }
             fast = fast->next;
         }
         
-        while (fast->next != nullptr) { //fast->next，这样控制住slow为要删除节点的前驱
+        while (fast->next) { //fast->next，这样控制住slow为要删除节点的前驱
             fast = fast->next;
             slow = slow->next;
         }
