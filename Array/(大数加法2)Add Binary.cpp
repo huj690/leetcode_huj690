@@ -1,22 +1,37 @@
+/*
+Given two binary strings, return their sum (also a binary string).
+
+For example,
+a = "11"
+b = "1"
+Return "100".
+*/
+
 class Solution {
 public:
     string addBinary(string a, string b) {
-        string res = "";
+        if (a.empty()) {
+            return b;
+        }
+        if (b.empty()) {
+            return a;
+        }
+        int max_len = a.size() > b.size() ? a.size() : b.size();
         reverse(a.begin(), a.end());
         reverse(b.begin(), b.end());
-        int length = max(a.length(), b.length());
+        
+        string res = "";
         int carry = 0;
-        for (int i = 0; i < length; i++) {
-            int ai = i < a.length() ? a[i] - '0' : 0;
-            int bi = i < b.length() ? b[i] - '0' : 0;
-            int resi = (ai + bi + carry) % 2;
-            carry = (ai + bi + carry) / 2;
-            res += to_string(resi);
+        for (int i = 0; i < max_len; i++) {
+            int numa = i < a.size() ? a[i] - '0' : 0;
+            int numb = i < b.size() ? b[i] - '0' : 0;
+            int val = (numa + numb + carry) % 2;
+            carry = (numa + numb + carry) / 2;
+            res.insert(res.begin(), val + '0');
         }
         if (carry > 0) {
-            res += '1';
+            res.insert(res.begin(), '1');
         }
-        reverse(res.begin(), res.end());
         return res;
     }
 };
