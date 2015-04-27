@@ -7,50 +7,60 @@ You must do this in-place without altering the nodes' values.
 For example,
 Given {1,2,3,4}, reorder it to {1,4,2,3}.
 */
+/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     ListNode *next;
+ *     ListNode(int x) : val(x), next(NULL) {}
+ * };
+ */
 class Solution {
 public:
     void reorderList(ListNode *head) {
-        if (head == NULL || head->next == NULL) {
+        if (head == NULL) {
             return;
         }
+        ListNode *dummy = new ListNode(-1);
+        dummy->next = head;
         
         ListNode *fast = head, *slow = head;
-        while (fast->next != NULL && fast->next->next != NULL) {
+        while (fast->next && fast->next->next) {
             fast = fast->next->next;
             slow = slow->next;
         }
         
-        // reverse after mid
-        reverseList(slow);
+        ListNode *p1 = head, *p2 = reverse(slow->next), *p = dummy; // reverse
+        slow->next = NULL; // cut off
         
-        // merge 2 list
-        ListNode *p1 = head, *p2 = slow->next;
-        while (p1 != slow) {
-            slow->next = p2->next;
-            p2->next = p1->next;
-            p1->next = p2;
+        while (p1 && p2) { // merge
+            p->next = p1;
+            p1 = p1->next;
+            p = p->next;
             
-            p1 = p2->next;
-            p2 = slow->next;
+            p->next = p2;
+            p2 = p2->next;
+            p = p->next;
         }
+        p->next = p1 ? p1 : p2;
     }
+    
 private:
-    void reverseList(ListNode *prev) {
-        if (prev == NULL || prev->next == NULL) {
-            return;
+    ListNode* reverse(ListNode *head) {
+        if (head == NULL || head->next == NULL) {
+            return head;
         }
-        
-        ListNode *last = prev;
-        while (last->next != NULL) {
-            last = last->next;
+        ListNode *prev = head, *cur = head->next, *next = cur->next;
+        prev->next = NULL;
+        while (1) {
+            cur->next = prev;
+            if (next == NULL) {
+                break;
+            }
+            prev = cur;
+            cur = next;
+            next = next->next;
         }
-        ListNode *cur = prev->next;
-        while (cur != last) {
-            prev->next = cur->next;
-            cur->next = last->next;
-            last->next = cur;
-            
-            cur = prev->next;
-        }
-    }
+        return cur;
+    } 
 };
